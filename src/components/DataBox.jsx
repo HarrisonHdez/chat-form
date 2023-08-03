@@ -1,11 +1,38 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const PinkBox = styled.div`
-  background-color: pink;
+const DataBoxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+const BoxText = styled.div`
+  background-color: #f0f0f0;
+  max-width: 287px;
+`;
+const Text = styled.div`
   padding: 10px;
   margin-top: 10px;
   text-align: center;
+  font-family: var(--primaryFont);
+  font-weight: 400;
+  border-radius: 4px;
+  text-transform: capitalize;
+  text-align: left;
+`;
+
+const PinkBox = styled.div`
+  background-color: var(--primaryColor);
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--primaryFont);
+
+  font-weight: 400;
+  border-radius: 4px;
+  text-transform: capitalize;
+  text-align: left;
 `;
 
 const Button = styled.button`
@@ -18,6 +45,10 @@ const Button = styled.button`
   cursor: pointer;
   font-family: var(--primaryFont);
   font-weight: 700;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 `;
 
 const DataBox = () => {
@@ -66,11 +97,14 @@ const DataBox = () => {
   };
 
   return (
-    <div>
+    <DataBoxContainer className="animate__animated animate__pulse">
+      <BoxText>
+        <Text>Si tus datos son correctos por favor continuemos</Text>
+      </BoxText>
+
       <Button onClick={handleShowData}>Iniciar</Button>
       {showData && (
         <PinkBox>
-          {/* <p>Tus datos de contacto:</p> */}
           <p>
             Fecha de nacimiento: {data.day} {data.month} {data.year}
             <br />
@@ -83,7 +117,7 @@ const DataBox = () => {
           </p>
         </PinkBox>
       )}
-    </div>
+    </DataBoxContainer>
   );
 };
 

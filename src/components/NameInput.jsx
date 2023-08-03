@@ -1,11 +1,15 @@
 // import { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { FaClock } from "react-icons/fa";
+// import { FaClock } from "react-icons/fa";
 const Form = styled.form`
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: column;
+  background-color: var(--formColor);
+  padding: 15px 15px 0 15px;
+  border-radius: 6px;
+  min-width: 287px;
+  box-shadow: 0 0 54px -29px;
 `;
 
 const Input = styled.input`
@@ -13,9 +17,10 @@ const Input = styled.input`
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
-  background: none
+  background: none;
   color: var(--titleColor);
   text-transform: capitalize;
+  font-family: var(--primaryFont);
 `;
 const Title = styled.p`
   font-size: 16px;
@@ -29,10 +34,11 @@ const PinkBox = styled.div`
   padding: 10px;
   margin-top: 10px;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--primaryFont);
   font-weight: 400;
   border-radius: 4px;
   text-transform: capitalize;
+  text-align: left;
 `;
 
 const NameInput = () => {
@@ -59,28 +65,26 @@ const NameInput = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-
-  return (
-    <div className="prueba">
-      <div className="prueba2">
-        <h1>Titulo de formulario</h1>
+  {
+    /* <h1>Titulo de formulario</h1>
 
         <FaClock size={40} />
-        <p>En menos de 5 minutos</p>
-      </div>
-
-      <Form onSubmit={handleSubmit}>
+        <p>En menos de 5 minutos</p> */
+  }
+  return (
+    <>
+      <div className="pruebaform animate__animated animate__pulse">
         <div>
           <img
             width="100"
             height="100"
             src="svg/iconchat.svg"
             alt="icon chat"
+            className="chat"
           />
         </div>
-
-        <div>
-          <div className="prueba3">
+        <div className="prueba100">
+          <Form onSubmit={handleSubmit}>
             <Title>¿Cuál es tu nombre?</Title>
             <Input
               type="text"
@@ -106,7 +110,8 @@ const NameInput = () => {
               value={motherLastName}
               onChange={(e) => setMotherLastName(e.target.value)}
             />
-          </div>
+          </Form>
+
           {firstName && middleName && lastName && motherLastName ? (
             <PinkBox>
               {/* <p>Tus datos:</p> */}
@@ -116,8 +121,8 @@ const NameInput = () => {
             </PinkBox>
           ) : null}
         </div>
-      </Form>
-    </div>
+      </div>
+    </>
   );
 };
 

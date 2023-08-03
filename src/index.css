@@ -4,53 +4,67 @@
   --primaryColor: #F072DD;
   --titleColor: #000000;
   --primaryFont: 'Roboto', sans-serif;
-
+  --formColor: #ffffff;
   --buttonColor: #F64283;
+  --colorCode: #0e1d39;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
   min-height: 100vh;
   position: relative;
-  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(255, 255, 255, 85%), rgba(255, 255, 255, 85%)), url(/image/chat.png);
 }
-.container {
+/* .container {
   max-width: 1200px;
   margin: auto;
   width: 95%;
+} */
+
+.logo {
+  max-width: 209px;
+  width: 100%;
+}
+
+.main {
+  
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
 }
 .main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* align-items: center;
   height: 100vh;
-  width: 100%;
+  width: 100%; */
 }
 .main-prueba {
   display: flex;
   gap: 50px;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
+.main__left,
+.main__right,
 .main__center {
-  background-image: url('/public/image/chat.png');
+  background-image: url('/image/chat.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* height: 100%; */
-  height: 800px;
+  min-height: 800px;
+  max-width: 430px;
+  width: 100%;
 }
 .prueba {
   height: 800px;
-  background-image: url('/public/image/chat.png');
+  background-image: url('/image/chat.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -58,9 +72,9 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
 }
-.prueba100 {
+.pruebaform {
   display: flex;
-    flex-direction: column;
+  justify-content: space-between;
 }
 .prueba2 {
   min-width: 375px;
@@ -80,6 +94,9 @@ body {
 }
 .pruebaform {
   display: flex;
+}
+.chat {
+  width: 100%;
 }
 ::placeholder {
   color: var(--titleColor); /* Cambia el color aquí */
