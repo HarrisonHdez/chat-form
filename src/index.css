@@ -38,7 +38,7 @@ body {
   align-items: center;
 }
 .main__center {
-  background-image: url(image/chat.png);
+  background-image: url('/public/image/chat.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,7 +50,7 @@ body {
 }
 .prueba {
   height: 800px;
-  background-image: url(image/chat.png);
+  background-image: url('/public/image/chat.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
