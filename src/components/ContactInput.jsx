@@ -4,15 +4,18 @@ import styled from "styled-components";
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  background: #F0F0F0;
+  background: #f0f0f0;
   padding: 15px 15px 0 15px;
   border-radius: 6px;
 `;
 
 const Input = styled.input`
-  border: 2px solid pink;
-  padding: 10px;
-  margin-bottom: 10px;
+border: 2px solid #d8d8d8;
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 4px;
+background: none color:var(--titleColor);
+text-transform: capitalize;
 `;
 const Title = styled.p`
   font-size: 16px;
@@ -54,7 +57,7 @@ const ContactInput = () => {
         </div>
         <div className="prueba100">
           <Form onSubmit={handleSubmit}>
-          <Title>¿Cuál es tu nombre?</Title>
+            <Title>¿Cuál es tu nombre?</Title>
             <Input
               type="email"
               placeholder="Correo electrónico"
@@ -67,19 +70,17 @@ const ContactInput = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
-          
-            
           </Form>
           {email && phone ? (
-              <PinkBox>
-                {/* <p>Tus datos de contacto:</p> */}
-                <p>
-                  Correo electrónico: {email}
-                  <br />
-                  Teléfono celular: {phone}
-                </p>
-              </PinkBox>
-            ) : null}
+            <PinkBox>
+              {/* <p>Tus datos de contacto:</p> */}
+              <p>
+                Correo electrónico: {email}
+                <br />
+                Teléfono celular: {phone}
+              </p>
+            </PinkBox>
+          ) : null}
         </div>
       </div>
     </>
