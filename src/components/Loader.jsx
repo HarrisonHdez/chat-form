@@ -10,7 +10,7 @@ const LoaderBox = styled.div`
   justify-content: center;
   align-items: center;
   background-color: white;
-  z-index: 9999; /* Valor alto para asegurar que se vea por encima de todo */
+  z-index: 9999;
 `;
 
 const Loader = () => {
