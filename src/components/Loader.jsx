@@ -16,7 +16,7 @@ const LoaderBox = styled.div`
 const Loader = () => {
   return (
     <LoaderBox>
-      <img width="150" height="150" src="/gif.gif" alt="Loading..." />
+      <img width="150" height="150" src="/gif/loader.gif" alt="Loading..." />
     </LoaderBox>
   );
 };

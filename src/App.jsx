@@ -2,32 +2,25 @@ import { useEffect, useState } from "react";
 import ContactInput from "./components/ContactInput";
 import DataBox from "./components/DataBox";
 import DateInput from "./components/DateInput";
-import FooterBar from "./components/FooterBar";
 import Loader from "./components/Loader";
 import NameInput from "./components/NameInput";
-import NavBar from "./components/NavBar";
+import Layout from "./components/Layout";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
 
-// Simulación de carga asincrónica (puedes ajustarla según tus necesidades)
-const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-  // Simulación de 2 segundos de carga
-  setTimeout(() => {
-    setLoading(false);
-  }, 2000);
-}, []);
-
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
-    <>
-      <NavBar />
-
+    <Layout>
       <main className="main">
-        {loading ? ( // Comprobamos si está cargando
-          <Loader /> // Si está cargando, mostramos el componente Loader
-        ) : ( // Si no está cargando, mostramos el contenido principal
+        {loading ? (
+          <Loader />
+        ) : (
           <div className="main__content">
             <div className="main__left">
               <NameInput />
@@ -43,9 +36,7 @@ useEffect(() => {
           </div>
         )}
       </main>
-
-      <FooterBar />
-    </>
+    </Layout>
   );
 };
 

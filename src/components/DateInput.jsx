@@ -47,24 +47,31 @@ const PinkBox = styled.div`
   text-align: left;
 `;
 
+// Componente DateInput
 const DateInput = () => {
+  // Estados locales para almacenar los valores del día, mes y año,
+  // inicializados con los valores almacenados en el localStorage o con cadenas vacías si no hay valores almacenados.
   const [day, setDay] = useState(localStorage.getItem("day") || "");
   const [month, setMonth] = useState(localStorage.getItem("month") || "");
   const [year, setYear] = useState(localStorage.getItem("year") || "");
 
+  // useEffect se utiliza para guardar el día, mes y año en el localStorage cada vez que cambian.
   useEffect(() => {
     localStorage.setItem("day", day);
     localStorage.setItem("month", month);
     localStorage.setItem("year", year);
   }, [day, month, year]);
 
+  // Función que se ejecuta cuando se envía el formulario (submit), evitando el comportamiento por defecto del navegador.
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
+  // Renderizado del componente.
   return (
     <FormContainer className="animate__animated animate__pulse">
       <div>
+        {/* Icono */}
         <img
           width="100"
           height="100"
@@ -74,21 +81,28 @@ const DateInput = () => {
         />
       </div>
       <div>
+        {/* Formulario */}
         <Form onSubmit={handleSubmit}>
+          {/* Título del formulario */}
           <Title>¿Cuál es tu fecha de nacimiento?</Title>
 
+          {/* Campo de entrada para el día */}
           <Input
             type="number"
             placeholder="Día"
             value={day}
             onChange={(e) => setDay(e.target.value)}
           />
+
+          {/* Campo de entrada para el mes */}
           <Input
             type="text"
             placeholder="Mes"
             value={month}
             onChange={(e) => setMonth(e.target.value)}
           />
+
+          {/* Campo de entrada para el año */}
           <Input
             type="number"
             placeholder="Año"
@@ -96,7 +110,8 @@ const DateInput = () => {
             onChange={(e) => setYear(e.target.value)}
           />
         </Form>
-
+        
+        {/* Renderiza PinkBox con la fecha completa solo si los campos de día, mes y año están completos */}
         {day && month && year ? (
           <PinkBox>
             <p>

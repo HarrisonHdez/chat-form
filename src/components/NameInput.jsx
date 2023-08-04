@@ -80,7 +80,10 @@ const PinkBox = styled.div`
   text-align: left;
 `;
 
+// Componente NameInput
 const NameInput = () => {
+  // Estados locales para almacenar los valores del primer nombre, segundo nombre, apellido paterno y apellido materno,
+  // inicializados con los valores almacenados en el localStorage o con cadenas vacías si no hay valores almacenados.
   const [firstName, setFirstName] = useState(
     localStorage.getItem("firstName") || ""
   );
@@ -94,6 +97,7 @@ const NameInput = () => {
     localStorage.getItem("motherLastName") || ""
   );
 
+  // useEffect se utiliza para guardar los valores en el localStorage cada vez que cambian.
   useEffect(() => {
     localStorage.setItem("firstName", firstName);
     localStorage.setItem("middleName", middleName);
@@ -101,24 +105,33 @@ const NameInput = () => {
     localStorage.setItem("motherLastName", motherLastName);
   }, [firstName, middleName, lastName, motherLastName]);
 
+  // Función que se ejecuta cuando se envía el formulario (submit), evitando el comportamiento por defecto del navegador.
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
+  // Renderizado del componente.
   return (
     <>
+      {/* BoxPrimary */}
       <BoxPrimary className="animate__animated animate__pulse">
+        {/* BoxH1 */}
         <BoxH1>
+          {/* Título del formulario */}
           <H1>Titulo de formulario</H1>
-        <Reloj>
-          <AiOutlineClockCircle size={48} />
-          <p>En menos de 5 minutos</p>
-        </Reloj>
+          {/* Reloj */}
+          <Reloj>
+            <AiOutlineClockCircle size={48} />
+            <p>En menos de 5 minutos</p>
+          </Reloj>
         </BoxH1>
-
+        {/* Icono */}
         <AiFillFileUnknown size={90} color="white" />
       </BoxPrimary>
+      {/* FormContainer */}
       <FormContainer className="animate__animated animate__pulse">
         <div>
+          {/* Contenedor de la imagen del icono */}
           <img
             width="100"
             height="100"
@@ -128,26 +141,32 @@ const NameInput = () => {
           />
         </div>
         <div>
+          {/* Formulario */}
           <Form onSubmit={handleSubmit}>
+            {/* Título del formulario */}
             <Title>¿Cuál es tu nombre?</Title>
+            {/* Campo de entrada para el primer nombre */}
             <Input
               type="text"
               placeholder="Nombre"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
+            {/* Campo de entrada para el segundo nombre */}
             <Input
               type="text"
               placeholder="Segundo nombre"
               value={middleName}
               onChange={(e) => setMiddleName(e.target.value)}
             />
+            {/* Campo de entrada para el apellido paterno */}
             <Input
               type="text"
               placeholder="Apellido paterno"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
+            {/* Campo de entrada para el apellido materno */}
             <Input
               type="text"
               placeholder="Apellido materno"
@@ -156,9 +175,9 @@ const NameInput = () => {
             />
           </Form>
 
+          {/* Renderiza PinkBox con el nombre completo solo si los campos están completos */}
           {firstName && middleName && lastName && motherLastName ? (
             <PinkBox>
-              {/* <p>Tus datos:</p> */}
               <p>
                 {firstName} {middleName} {lastName} {motherLastName}
               </p>

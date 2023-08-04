@@ -28,6 +28,7 @@ const Input = styled.input`
   color: var(--titleColor);
   font-family: var(--primaryFont);
 `;
+
 const Title = styled.p`
   font-size: 16px;
   font-weight: 700;
@@ -35,6 +36,7 @@ const Title = styled.p`
   font-family: var(--primaryFont);
   padding: 0 0 15px;
 `;
+
 const PinkBox = styled.div`
   background-color: var(--primaryColor);
   padding: 10px;
@@ -47,22 +49,28 @@ const PinkBox = styled.div`
   text-align: left;
 `;
 
+// Componente ContactInput
 const ContactInput = () => {
+  // Estados locales para almacenar los valores de email y phone
+  // inicializados con los valores almacenados en el localStorage o con cadenas vacías si no hay valores almacenados.
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [phone, setPhone] = useState(localStorage.getItem("phone") || "");
 
+  // useEffect se utiliza para guardar el email y el teléfono en el localStorage cada vez que cambian.
   useEffect(() => {
     localStorage.setItem("email", email);
     localStorage.setItem("phone", phone);
   }, [email, phone]);
 
+  // Función que se ejecuta cuando se envía el formulario (submit), evitando el comportamiento por defecto del navegador.
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-
+  // Renderizado del componente.
   return (
     <FormContainer className="animate__animated animate__pulse">
       <div>
+        {/* Icono */}
         <img
           width="100"
           height="100"
@@ -72,21 +80,27 @@ const ContactInput = () => {
         />
       </div>
       <div>
+         {/* Formulario */}
         <Form onSubmit={handleSubmit}>
+          {/* Título del formulario */}
           <Title>Datos de contactos</Title>
+
+          {/* Campo de correo electrónico */}
           <Input
             type="email"
             placeholder="Correo electrónico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {/* Campo de teléfono */}
           <Input
             type="tel"
-            placeholder="Teléfono celular"
+            placeholder="Teléfono"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
         </Form>
+        {/* Renderiza PinkBox con los datos de contacto solo si ambos campos están completos */}
         {email && phone ? (
           <PinkBox>
             <p>
