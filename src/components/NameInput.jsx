@@ -1,15 +1,54 @@
-// import { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-// import { FaClock } from "react-icons/fa";
+import { AiOutlineClockCircle } from "react-icons/ai";
+import { AiFillFileUnknown } from "react-icons/ai";
+
+const BoxPrimary = styled.div`
+  width: 100%;
+  height: 300px;
+  margin-bottom: 50px;
+  background: var(--primaryColor);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const H1 = styled.h1`
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--titleColor);
+  font-family: var(--primaryFont);
+`;
+const BoxH1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+`;
+
+const Reloj = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--primaryFont);
+  font-weight: 700;
+  display: flex;
+`;
+const FormContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   background-color: var(--formColor);
   padding: 15px 15px 0 15px;
   border-radius: 6px;
-  min-width: 287px;
   box-shadow: 0 0 54px -29px;
+
+  @media (min-width: 768px) {
+    min-width: 287px;
+  }
 `;
 
 const Input = styled.input`
@@ -65,15 +104,20 @@ const NameInput = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-  {
-    /* <h1>Titulo de formulario</h1>
-
-        <FaClock size={40} />
-        <p>En menos de 5 minutos</p> */
-  }
   return (
     <>
-      <div className="pruebaform animate__animated animate__pulse">
+      <BoxPrimary>
+        <BoxH1>
+          <H1>Titulo de formulario</H1>
+        <Reloj>
+          <AiOutlineClockCircle size={48} />
+          <p>En menos de 5 minutos</p>
+        </Reloj>
+        </BoxH1>
+
+        <AiFillFileUnknown size={90} color="white" />
+      </BoxPrimary>
+      <FormContainer className="animate__animated animate__pulse">
         <div>
           <img
             width="100"
@@ -83,7 +127,7 @@ const NameInput = () => {
             className="chat"
           />
         </div>
-        <div className="prueba100">
+        <div>
           <Form onSubmit={handleSubmit}>
             <Title>¿Cuál es tu nombre?</Title>
             <Input
@@ -121,7 +165,7 @@ const NameInput = () => {
             </PinkBox>
           ) : null}
         </div>
-      </div>
+      </FormContainer>
     </>
   );
 };

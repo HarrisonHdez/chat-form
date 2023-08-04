@@ -1,15 +1,21 @@
-// import { useEffect, useState } from 'react';
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+const FormContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   background-color: var(--formColor);
   padding: 15px 15px 0 15px;
   border-radius: 6px;
-  min-width: 287px;
   box-shadow: 0 0 54px -29px;
+
+  @media (min-width: 768px) {
+    min-width: 287px;
+  }
 `;
 
 const Input = styled.input`
@@ -57,51 +63,49 @@ const DateInput = () => {
   };
 
   return (
-    <>
-      <div className="pruebaform animate__animated animate__pulse">
-        <div>
-          <img
-            width="100"
-            height="100"
-            src="svg/iconchat.svg"
-            alt="icon chat"
-            className="chat"
-          />
-        </div>
-        <div className="prueba100">
-          <Form onSubmit={handleSubmit}>
-            <Title>¿Cuál es tu fecha de nacimiento?</Title>
-
-            <Input
-              type="number"
-              placeholder="Día"
-              value={day}
-              onChange={(e) => setDay(e.target.value)}
-            />
-            <Input
-              type="text"
-              placeholder="Agosto"
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-            />
-            <Input
-              type="number"
-              placeholder="Año"
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-            />
-          </Form>
-
-          {day && month && year ? (
-            <PinkBox>
-              <p>
-                {day} {month} {year}
-              </p>
-            </PinkBox>
-          ) : null}
-        </div>
+    <FormContainer className="animate__animated animate__pulse">
+      <div>
+        <img
+          width="100"
+          height="100"
+          src="svg/iconchat.svg"
+          alt="icon chat"
+          className="chat"
+        />
       </div>
-    </>
+      <div>
+        <Form onSubmit={handleSubmit}>
+          <Title>¿Cuál es tu fecha de nacimiento?</Title>
+
+          <Input
+            type="number"
+            placeholder="Día"
+            value={day}
+            onChange={(e) => setDay(e.target.value)}
+          />
+          <Input
+            type="text"
+            placeholder="Mes"
+            value={month}
+            onChange={(e) => setMonth(e.target.value)}
+          />
+          <Input
+            type="number"
+            placeholder="Año"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+          />
+        </Form>
+
+        {day && month && year ? (
+          <PinkBox>
+            <p>
+              {day} {month} {year}
+            </p>
+          </PinkBox>
+        ) : null}
+      </div>
+    </FormContainer>
   );
 };
 
