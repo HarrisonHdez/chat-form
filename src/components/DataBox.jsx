@@ -5,6 +5,7 @@ const DataBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 30px;
 `;
 
 const BoxText = styled.div`
@@ -26,13 +27,13 @@ const Text = styled.p`
 const PinkBox = styled.div`
   background-color: var(--primaryColor);
   padding: 10px;
-  margin-top: 10px;
   text-align: center;
   font-family: var(--primaryFont);
   font-weight: 400;
   border-radius: 4px;
   text-transform: capitalize;
   text-align: left;
+  padding: 30px;
 `;
 
 const Button = styled.button`
