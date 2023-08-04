@@ -1,6 +1,6 @@
-import FooterBar from "./FooterBar";
-import NavBar from "./Navbar";
 import PropTypes from "prop-types";
+import NavBar from "./NavBar";
+import FooterBar from "./FooterBar";
 
 const Layout = ({ children }) => {
   return (
