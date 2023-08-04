@@ -139,7 +139,7 @@ const NameInput = () => {
             alt="icon chat"
             className="chat"
           />
-        </div>
+        </div> 
         <div>
           {/* Formulario */}
           <Form onSubmit={handleSubmit}>
@@ -158,7 +158,7 @@ const NameInput = () => {
               placeholder="Segundo nombre"
               value={middleName}
               onChange={(e) => setMiddleName(e.target.value)}
-            />
+            />  
             {/* Campo de entrada para el apellido paterno */}
             <Input
               type="text"
@@ -188,5 +188,5 @@ const NameInput = () => {
     </>
   );
 };
-
+    
 export default NameInput;

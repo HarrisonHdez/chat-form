@@ -5,7 +5,7 @@ const FormContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
+ 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ const Form = styled.form`
     min-width: 287px;
   }
 `;
-
+  
 const Input = styled.input`
   border: 2px solid #d8d8d8;
   padding: 10px;

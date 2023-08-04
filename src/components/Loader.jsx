@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+        
 const LoaderBox = styled.div`
   position: fixed;
   top: 0;
@@ -12,7 +12,7 @@ const LoaderBox = styled.div`
   background-color: white;
   z-index: 9999;
 `;
-
+      
 const Loader = () => {
   return (
     <LoaderBox>
