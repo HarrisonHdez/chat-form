@@ -80,7 +80,6 @@ const PinkBox = styled.div`
   text-align: left;
 `;
 
-// Componente NameInput
 const NameInput = () => {
   // Estados locales para almacenar los valores del primer nombre, segundo nombre, apellido paterno y apellido materno,
   // inicializados con los valores almacenados en el localStorage o con cadenas vacías si no hay valores almacenados.

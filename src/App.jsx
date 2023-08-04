@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import ContactInput from "./components/ContactInput";
 import DataBox from "./components/DataBox";
-import DateInput from "./components/DateInput";
+import DateForm from "./components/DateForm";
 import Loader from "./components/Loader";
-import NameInput from "./components/NameInput";
+import NameForm from "./components/NameForm";
 import Layout from "./components/Layout";
+import ContactForm from "./components/FormContact";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -23,14 +23,14 @@ const App = () => {
         ) : (
           <div className="main__content">
             <div className="main__left">
-              <NameInput />
+              <NameForm />
             </div>
             <div className="main__center">
-              <DateInput />
-              <ContactInput />
+              <DateForm />
+              <ContactForm />
             </div>
             <div className="main__right">
-              <ContactInput />
+              <ContactForm />
               <DataBox />
             </div>
           </div>

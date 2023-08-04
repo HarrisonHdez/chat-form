@@ -5,6 +5,7 @@ const FormContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+ 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -17,7 +18,7 @@ const Form = styled.form`
     min-width: 287px;
   }
 `;
-
+  
 const Input = styled.input`
   border: 2px solid #d8d8d8;
   padding: 10px;
@@ -25,9 +26,9 @@ const Input = styled.input`
   border-radius: 4px;
   background: none;
   color: var(--titleColor);
-  text-transform: capitalize;
   font-family: var(--primaryFont);
 `;
+
 const Title = styled.h2`
   font-size: 16px;
   font-weight: 700;
@@ -35,6 +36,7 @@ const Title = styled.h2`
   font-family: var(--primaryFont);
   padding: 0 0 15px;
 `;
+
 const PinkBox = styled.div`
   background-color: var(--primaryColor);
   padding: 10px;
@@ -47,26 +49,22 @@ const PinkBox = styled.div`
   text-align: left;
 `;
 
-// Componente DateInput
-const DateInput = () => {
-  // Estados locales para almacenar los valores del día, mes y año,
+const ContactForm = () => {
+  // Estados locales para almacenar los valores de email y phone
   // inicializados con los valores almacenados en el localStorage o con cadenas vacías si no hay valores almacenados.
-  const [day, setDay] = useState(localStorage.getItem("day") || "");
-  const [month, setMonth] = useState(localStorage.getItem("month") || "");
-  const [year, setYear] = useState(localStorage.getItem("year") || "");
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  const [phone, setPhone] = useState(localStorage.getItem("phone") || "");
 
-  // useEffect se utiliza para guardar el día, mes y año en el localStorage cada vez que cambian.
+  // useEffect se utiliza para guardar el email y el teléfono en el localStorage cada vez que cambian.
   useEffect(() => {
-    localStorage.setItem("day", day);
-    localStorage.setItem("month", month);
-    localStorage.setItem("year", year);
-  }, [day, month, year]);
+    localStorage.setItem("email", email);
+    localStorage.setItem("phone", phone);
+  }, [email, phone]);
 
   // Función que se ejecuta cuando se envía el formulario (submit), evitando el comportamiento por defecto del navegador.
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-
   // Renderizado del componente.
   return (
     <FormContainer className="animate__animated animate__pulse">
@@ -81,41 +79,33 @@ const DateInput = () => {
         />
       </div>
       <div>
-        {/* Formulario */}
+         {/* Formulario */}
         <Form onSubmit={handleSubmit}>
           {/* Título del formulario */}
-          <Title>¿Cuál es tu fecha de nacimiento?</Title>
+          <Title>Datos de contactos</Title>
 
-          {/* Campo de entrada para el día */}
+          {/* Campo de correo electrónico */}
           <Input
-            type="number"
-            placeholder="Día"
-            value={day}
-            onChange={(e) => setDay(e.target.value)}
+            type="email"
+            placeholder="Correo electrónico"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-
-          {/* Campo de entrada para el mes */}
+          {/* Campo de teléfono */}
           <Input
-            type="text"
-            placeholder="Mes"
-            value={month}
-            onChange={(e) => setMonth(e.target.value)}
-          />
-
-          {/* Campo de entrada para el año */}
-          <Input
-            type="number"
-            placeholder="Año"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
+            type="tel"
+            placeholder="Teléfono"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </Form>
-        
-        {/* Renderiza PinkBox con la fecha completa solo si los campos de día, mes y año están completos */}
-        {day && month && year ? (
+        {/* Renderiza PinkBox con los datos de contacto solo si ambos campos están completos */}
+        {email && phone ? (
           <PinkBox>
             <p>
-              {day} {month} {year}
+              Correo electrónico: {email}
+              <br />
+              Teléfono celular: {phone}
             </p>
           </PinkBox>
         ) : null}
@@ -124,4 +114,4 @@ const DateInput = () => {
   );
 };
 
-export default DateInput;
+export default ContactForm;

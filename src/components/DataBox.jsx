@@ -52,7 +52,6 @@ const Button = styled.button`
   justify-content: center;
 `;
 
-// Componente principal llamado DataBox.
 const DataBox = () => {
   // El componente utiliza el hook useState de React para gestionar su estado.
   const [showData, setShowData] = useState(false); // Una variable de estado para controlar si se muestra la información o no.
