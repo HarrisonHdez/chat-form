@@ -29,7 +29,7 @@ const Input = styled.input`
   font-family: var(--primaryFont);
 `;
 
-const Title = styled.p`
+const Title = styled.h2`
   font-size: 16px;
   font-weight: 700;
   color: var(--titleColor);
