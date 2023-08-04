@@ -106,7 +106,7 @@ const NameInput = () => {
   };
   return (
     <>
-      <BoxPrimary>
+      <BoxPrimary className="animate__animated animate__pulse">
         <BoxH1>
           <H1>Titulo de formulario</H1>
         <Reloj>
